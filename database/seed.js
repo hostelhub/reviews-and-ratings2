@@ -40,5 +40,3 @@ const insertReviews = () => {
 }
 
 insertReviews();
-
-console.log(sampleReviews);

@@ -8,7 +8,7 @@ const groupType = ["Female", "Male", "Mixed Group"];
 const ageRange = ["18-21", "18-21", "18-21", "18-21", "18-21", "21-35", "21-35", "21-35", "35-50", "50+"];
 const nationality = ["United States", "United States", "United States", "United Kingdom", "United Kingdom", "France", "Germany", "Brazil"];
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 100; i++) {
   var randomNum = Math.random() * Math.floor(10);
   
   sampleReviews.push({

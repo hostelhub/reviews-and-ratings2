@@ -1,0 +1,51 @@
+{
+  "name": "reviews-and-ratings",
+  "version": "1.0.0",
+  "description": "This repository includes the components for the Reviews and Ratings of HostelHub.",
+  "author": "Theresa Li",
+  "license": "",
+  "engines": {
+    "node": ">=6.13.0"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/reviewsAndRatings.test.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js",
+    "seedDB": "node database/seed.js",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.4.20",
+    "nodemon": "^1.18.10",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0",
+    "webpack": "^4.29.6",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-jest": "^22.4.1",
+    "faker": "^4.1.0",
+    "jest": "^24.5.0",
+    "webpack-cli": "^3.3.0"
+  }
+}

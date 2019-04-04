@@ -44,37 +44,6 @@ for (let h = 1; h < 101; h += 1) {
   });
 }
 
-// for (let i = 1; i < 10; i += 1) {
-//   const randomAmt = faker.random.number({min:40, max:1000});
-
-//   // for (let r = 0; r < randomAmt; r += 1) {
-//       const randomNum = faker.random.number(10);
-      
-//       sampleReviews.push({
-//         _id: i,
-//         user: {
-//           username: faker.internet.userName(),
-//           nationality: nationality[Math.floor(Math.random() * Math.floor(nationality.length))],
-//           groupType: groupType[Math.floor(Math.random() * Math.floor(groupType.length))],
-//           ageRange: ageRange[Math.floor(Math.random() * Math.floor(ageRange.length))],
-//           totalReviews: faker.random.number(40)
-//         },
-//         ratings: {
-//           valueForMoney: faker.random.number({min:randomNum, max:10}),
-//           location: faker.random.number({min:randomNum, max:10}),
-//           atmosphere: faker.random.number({min:randomNum, max:10}),
-//           facilities: faker.random.number({min:randomNum, max:10}),
-//           security: faker.random.number({min:randomNum, max:10}),
-//           staff: faker.random.number({min:randomNum, max:10}),
-//           cleanliness: faker.random.number({min:randomNum, max:10}),
-//         },
-//         language: faker.random.boolean(chance_of_getting_true=90),
-//         review: faker.lorem.paragraph(),
-//         date: faker.date.past()
-//       });
-//   // }
-// }
-
 const insertReviews = () => {
   Review.create(hostels)
     .then(() => db.disconnect());

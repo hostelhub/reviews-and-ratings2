@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import ReviewsAndRatings from './ReviewsAndRatings.jsx'
 
 class App extends React.Component {
   constructor (props) {
@@ -26,8 +27,8 @@ class App extends React.Component {
 
   render () {
     return (
-      <div>
-        
+      <div id="reviews">
+        <ReviewsAndRatings reviews={this.state.reviews.reviews}/>
       </div>
     )
   }

@@ -28,7 +28,7 @@ class App extends React.Component {
   render () {
     return (
       <div id="reviews">
-        <ReviewsAndRatings reviews={this.state.reviews.reviews}/>
+        <ReviewsAndRatings reviews={this.state.reviews[0]}/>
       </div>
     )
   }

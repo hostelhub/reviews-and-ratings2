@@ -17,12 +17,21 @@ class App extends React.Component {
 
     $.ajax({
       method: 'GET',
-      url: '/api/reviews',
+      url: '/api/reviews/2',
       success: (reviews) => { 
         callback(reviews); 
       },
       error: (error) => { throw error }
     });
+  }
+
+  render () {
+    return (
+      <div>
+        <p>Hello</p>
+        {JSON.stringify(this.state.reviews)}
+      </div>
+    )
   }
 }
 

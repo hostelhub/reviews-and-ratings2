@@ -11,15 +11,13 @@ class App extends React.Component {
   }
 
   componentDidMount () {
-    const callback = (reviews) => {
-      this.setState({reviews: reviews});
-    }
+    const self = this;
 
     $.ajax({
       method: 'GET',
       url: '/api/reviews/2',
       success: (reviews) => { 
-        callback(reviews); 
+        self.setState({reviews: reviews});
       },
       error: (error) => { throw error }
     });

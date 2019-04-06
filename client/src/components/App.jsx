@@ -1,6 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
+import styled from 'styled-components';
+
 import ReviewsAndRatings from './ReviewsAndRatings.jsx'
+
+const Reviews = styled.div`
+  box-sizing: border-box;
+  font-family: "Noto", Helvetica, Arial, sans-serif;
+`;
 
 class App extends React.Component {
   constructor (props) {
@@ -25,9 +32,9 @@ class App extends React.Component {
 
   render () {
     return (
-      <div id="reviews">
+      <Reviews>
         <ReviewsAndRatings reviews={this.state.reviews[0]}/>
-      </div>
+      </Reviews>
     )
   }
 }

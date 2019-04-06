@@ -8,8 +8,12 @@
     "node": ">=6.13.0"
   },
   "jest": {
+    "verbose": true,
     "setupFilesAfterEnv": [
       "<rootDir>/tests/reviewsAndRatings.test.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/enzyme.config.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"

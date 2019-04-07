@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es6: true,
+    "jest/globals": true,
   },
   extends: 'airbnb',
   globals: {
@@ -17,9 +18,15 @@ module.exports = {
   },
   plugins: [
     'react',
+    'jest',
   ],
   rules: {
     "semi": ["error", "always"],
-    "quotes": ["error", "single"]
+    "quotes": ["error", "single"],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
   },
 };

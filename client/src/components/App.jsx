@@ -6,7 +6,8 @@ import ReviewsAndRatings from './ReviewsAndRatings.jsx'
 
 const Reviews = styled.div`
   box-sizing: border-box;
-  font-family: "Noto", Helvetica, Arial, sans-serif;
+  font-family: Arial;
+  margin: 5px;
 `;
 
 class App extends React.Component {

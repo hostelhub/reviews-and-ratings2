@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import TotalRatings from './TotalRatings';
+import IndividualRatings from './IndividualRatings';
 
 const Title = styled.h2`
   color: #444;
   line-height: 1.4;
   margin-bottom: 1.5rem;
   margin-top: 0;
-  font-size: 20px;
+  font-size: 24px;
   font-style: normal;
   font-weight: normal;
 `;
@@ -57,6 +58,7 @@ class ReviewsAndRatings extends React.Component {
           totalRatings={totalRatings}
           amtOfRatings={reviews.reviews.length}
         />
+        <IndividualRatings ratings={ratings} />
       </div>
     );
   }

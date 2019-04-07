@@ -1,5 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
 import TotalRatings from './TotalRatings.jsx'
+
+const Title = styled.h2`
+  color: #444;
+  line-height: 1.4;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: normal;
+`;
 
 class ReviewsAndRatings extends React.Component {
   constructor (props) {
@@ -42,7 +54,7 @@ class ReviewsAndRatings extends React.Component {
     const totalRatings = this.findAverageRating(Object.values(ratings));
     return (
       <div id="reviewsAndRatings">
-        <h2>Reviews & Ratings</h2>
+        <Title>Reviews & Ratings</Title>
         <TotalRatings 
           totalRatings={totalRatings}
           amtOfRatings={this.props.reviews.reviews.length}/>

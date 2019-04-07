@@ -15,6 +15,23 @@ const Score = styled.div`
   padding: 8px;
 `;
 
+const RatingDetails = styled.div`
+  color: #ff7547;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 10px;
+`;
+
+const ScoreRank = styled.div`
+  font-weight: bold;
+  font-size: 20px;
+`;
+
+const TotalReviews = styled.div`
+  font-size: 14px;
+`;
+
 class TotalRatings extends React.Component {
   static getScoreRank(score) {
     if (score >= 9) {
@@ -39,10 +56,10 @@ class TotalRatings extends React.Component {
     return (
       <Ratings>
         <Score>{totalRatings}</Score>
-        <div className="ratingDetails">
-          <div className="scoreRank">{TotalRatings.getScoreRank(totalRatings)}</div>
-          <div className="totalReviews">{totalReviews}</div>
-        </div>
+        <RatingDetails>
+          <ScoreRank>{TotalRatings.getScoreRank(totalRatings)}</ScoreRank>
+          <TotalReviews>{totalReviews}</TotalReviews>
+        </RatingDetails>
       </Ratings>
     );
   }

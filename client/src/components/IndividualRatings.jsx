@@ -8,7 +8,14 @@ class IndividualRatings extends React.PureComponent {
     const { ratings } = this.props;
     return (
       <div>
-        {Object.entries(ratings).map(rating => <IndividualRatingsEntries rating={rating} />)}
+        {Object.entries(ratings).map((rating) => {
+          return (
+            <IndividualRatingsEntries
+              ratingType={rating[0]}
+              rating={rating[1]}
+            />
+          );
+        })}
       </div>
     );
   }

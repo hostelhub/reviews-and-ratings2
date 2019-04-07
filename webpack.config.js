@@ -9,9 +9,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
+        test: /.(js|jsx)$/,
         exclude: /node_modules/,
-        // include: './client/src/index.jsx',
         use: {
           loader: 'babel-loader',
           options: {
@@ -19,6 +18,13 @@ module.exports = {
           },
         },
       },
+    ],
+  },
+  resolve: {
+    enforceExtension: false,
+    extensions: [
+      '.jsx',
+      '.js',
     ],
   },
 };

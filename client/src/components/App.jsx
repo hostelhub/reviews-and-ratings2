@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import styled from 'styled-components';
 
-import ReviewsAndRatings from './ReviewsAndRatings.jsx'
+import ReviewsAndRatings from './ReviewsAndRatings';
 
 const Reviews = styled.div`
   box-sizing: border-box;
@@ -11,32 +11,33 @@ const Reviews = styled.div`
 `;
 
 class App extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
     this.state = {
-      reviews: []
-    }
+      reviews: [],
+    };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     const self = this;
 
     $.ajax({
       method: 'GET',
       url: '/api/reviews/2',
-      success: (reviews) => { 
-        self.setState({reviews: reviews});
+      success: (reviews) => {
+        self.setState({ reviews });
       },
-      error: (error) => { throw error }
+      error: (error) => { throw error; },
     });
   }
 
-  render () {
+  render() {
+    const { reviews } = this.state;
     return (
       <Reviews>
-        <ReviewsAndRatings reviews={this.state.reviews[0]}/>
+        <ReviewsAndRatings reviews={reviews[0]} />
       </Reviews>
-    )
+    );
   }
 }
 

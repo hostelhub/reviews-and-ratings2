@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import TotalRatings from './TotalRatings.jsx'
+import TotalRatings from './TotalRatings';
 
 const Title = styled.h2`
   color: #444;
@@ -14,19 +15,20 @@ const Title = styled.h2`
 `;
 
 class ReviewsAndRatings extends React.Component {
-  constructor (props) {
-    super(props)
+  static findAverageRating(ratings) {
+    const total = ratings.reduce((acc, currVal) => acc + currVal);
+    return Math.round((total / ratings.length) * 10) / 10;
   }
 
-  findAverage (reviews) {
-    let ratings = {
+  static findAverage(reviews) {
+    const ratings = {
       atmosphere: [],
       cleanliness: [],
       facilities: [],
       location: [],
       security: [],
       staff: [],
-      valueForMoney: []
+      valueForMoney: [],
     };
 
     for (let r = 0; r < reviews.length; r += 1) {
@@ -38,47 +40,51 @@ class ReviewsAndRatings extends React.Component {
 
     const allRatingEntries = Object.entries(ratings);
     for (let a = 0; a < allRatingEntries.length; a += 1) {
-     ratings[allRatingEntries[a][0]] = this.findAverageRating(allRatingEntries[a][1]);
+      ratings[allRatingEntries[a][0]] = ReviewsAndRatings.findAverageRating(allRatingEntries[a][1]);
     }
 
     return ratings;
   }
 
-  findAverageRating (ratings) {
-    const total = ratings.reduce((acc, currVal) => acc + currVal);
-    return Math.round((total / ratings.length) * 10) / 10;
-  }
-
-  render () {
-    const ratings = this.findAverage(this.props.reviews.reviews);
-    const totalRatings = this.findAverageRating(Object.values(ratings));
+  render() {
+    const { reviews } = this.props;
+    const ratings = ReviewsAndRatings.findAverage(reviews.reviews);
+    const totalRatings = ReviewsAndRatings.findAverageRating(Object.values(ratings));
     return (
       <div id="reviewsAndRatings">
         <Title>Reviews & Ratings</Title>
-        <TotalRatings 
+        <TotalRatings
           totalRatings={totalRatings}
-          amtOfRatings={this.props.reviews.reviews.length}/>
+          amtOfRatings={reviews.reviews.length}
+        />
       </div>
-    )
+    );
   }
 }
 
 ReviewsAndRatings.defaultProps = {
   reviews: {
-    reviews:[
+    reviews: [
       {
-        ratings:{
+        ratings: {
           atmosphere: [],
           cleanliness: [],
           facilities: [],
           location: [],
           security: [],
           staff: [],
-          valueForMoney: []
-        }
-      }
-    ]
-  }
-}
+          valueForMoney: [],
+        },
+      },
+    ],
+  },
+};
+
+ReviewsAndRatings.propTypes = {
+  reviews: PropTypes.shape({
+    _id: PropTypes.number,
+    reviews: PropTypes.array,
+  }),
+};
 
 export default ReviewsAndRatings;

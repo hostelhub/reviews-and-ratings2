@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Ratings = styled.div`
@@ -15,35 +16,46 @@ const Score = styled.div`
 `;
 
 class TotalRatings extends React.Component {
-  constructor (props) {
-    super(props)
+  static getScoreRank(score) {
+    if (score >= 9) {
+      return 'Superb';
+    }
+    if (score >= 8) {
+      return 'Fabulous';
+    }
+    if (score >= 7) {
+      return 'Very Good';
+    }
+    if (score >= 6) {
+      return 'Good';
+    }
+    return 'Rating';
   }
 
-  getScoreRank (score) {
-    if (score >= 9) {
-      return "Superb";
-    } else if (score >= 8) {
-      return "Fabulous";
-    } else if (score >= 7) {
-      return "Very Good";
-    } else if (score >= 6) {
-      return "Good";
-    } else {
-      return "Rating";
-    }
-  }
-  
-  render () {
-    return(
+  render() {
+    const { totalRatings } = this.props;
+    const { amtOfRatings } = this.props;
+    const totalReviews = `Based on ${amtOfRatings} reviews`;
+    return (
       <Ratings>
-        <Score>{this.props.totalRatings}</Score>
+        <Score>{totalRatings}</Score>
         <div className="ratingDetails">
-          <div className="scoreRank">{this.getScoreRank(Number(this.props.totalRatings))}</div>
-          <div className="totalReviews">Based on {this.props.amtOfRatings} reviews</div>
+          <div className="scoreRank">{TotalRatings.getScoreRank(totalRatings)}</div>
+          <div className="totalReviews">{totalReviews}</div>
         </div>
       </Ratings>
-    )
+    );
   }
 }
+
+TotalRatings.defaultProps = {
+  totalRatings: 0,
+  amtOfRatings: 0,
+};
+
+TotalRatings.propTypes = {
+  totalRatings: PropTypes.number,
+  amtOfRatings: PropTypes.number,
+};
 
 export default TotalRatings;

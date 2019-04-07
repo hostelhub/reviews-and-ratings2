@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class IndividualRatings extends React.Component {
+import IndividualRatingsEntries from './IndividualRatingsEntries';
+
+class IndividualRatings extends React.PureComponent {
   render() {
     const { ratings } = this.props;
     return (
       <div>
-        <IndividualRatingsEntries ratings={ratings} />
+        {Object.entries(ratings).map(rating => <IndividualRatingsEntries rating={rating} />)}
       </div>
     );
   }

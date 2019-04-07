@@ -1,4 +1,18 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const Ratings = styled.div`
+  display: flex;  
+`;
+
+const Score = styled.div`
+  background-color: #ff7547;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  padding: 8px;
+`;
 
 class TotalRatings extends React.Component {
   constructor (props) {
@@ -21,13 +35,13 @@ class TotalRatings extends React.Component {
   
   render () {
     return(
-      <div className="totalRatings">
-        <div className="score">{this.props.totalRatings}</div>
+      <Ratings>
+        <Score>{this.props.totalRatings}</Score>
         <div className="ratingDetails">
           <div className="scoreRank">{this.getScoreRank(Number(this.props.totalRatings))}</div>
           <div className="totalReviews">Based on {this.props.amtOfRatings} reviews</div>
         </div>
-      </div>
+      </Ratings>
     )
   }
 }

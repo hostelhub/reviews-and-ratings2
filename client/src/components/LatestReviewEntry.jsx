@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Calendar } from 'styled-icons/boxicons-regular/Calendar';
 import PropType from 'prop-types';
 
-const CalendarIcon = styled.i`
-  content: "\F073";
+const CalendarIcon = styled(Calendar)`
+  height: 17px;
 `;
 
 class LatestReviewEntry extends React.PureComponent {
@@ -29,6 +30,16 @@ class LatestReviewEntry extends React.PureComponent {
     return 'Rating';
   }
 
+  static getDate(date) {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    const reviewDate = new Date(date);
+    const day = reviewDate.getDay();
+    const month = months[reviewDate.getMonth()];
+    const year = reviewDate.getFullYear();
+
+    return `${day} ${month} ${year}`;
+  }
+
   render() {
     const { review } = this.props;
     const avgScore = LatestReviewEntry.findAvgScore(review.ratings);
@@ -43,6 +54,7 @@ class LatestReviewEntry extends React.PureComponent {
           </div>
           <div className="date">
             <CalendarIcon />
+            <p>{LatestReviewEntry.getDate(review.date)}</p>
           </div>
         </div>
       </div>

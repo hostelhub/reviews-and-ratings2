@@ -21,7 +21,7 @@ const LineBreak = styled.hr`
   margin-top: 15px;
 `;
 
-class ReviewsAndRatings extends React.Component {
+class ReviewsAndRatings extends React.PureComponent {
   static findAverageRating(ratings) {
     const total = ratings.reduce((acc, currVal) => acc + currVal);
     return Math.round((total / ratings.length) * 10) / 10;
@@ -64,9 +64,9 @@ class ReviewsAndRatings extends React.Component {
           totalRatings={totalRatings}
           amtOfRatings={reviews.reviews.length}
         />
-        <LineBreak/>
+        <LineBreak />
         <IndividualRatings ratings={ratings} />
-        <LineBreak/>
+        <LineBreak />
       </div>
     );
   }

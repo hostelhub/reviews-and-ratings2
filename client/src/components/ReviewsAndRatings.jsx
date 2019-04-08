@@ -15,6 +15,12 @@ const Title = styled.h2`
   font-weight: normal;
 `;
 
+const LineBreak = styled.hr`
+  border: 1px dotted #dedede;
+  margin-bottom: 15px;
+  margin-top: 15px;
+`;
+
 class ReviewsAndRatings extends React.Component {
   static findAverageRating(ratings) {
     const total = ratings.reduce((acc, currVal) => acc + currVal);
@@ -58,7 +64,9 @@ class ReviewsAndRatings extends React.Component {
           totalRatings={totalRatings}
           amtOfRatings={reviews.reviews.length}
         />
+        <LineBreak/>
         <IndividualRatings ratings={ratings} />
+        <LineBreak/>
       </div>
     );
   }

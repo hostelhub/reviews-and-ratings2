@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class IndividualRatingsEntries extends React.PureComponent {
-  static capitalizeFirstChar(string) {
-    return string[0].toUpperCase() + string.slice(1);
+  static capitalizeFirstCharAndSplit(string) {
+    return (string[0].toUpperCase() + string.slice(1)).split(/(?=[A-Z])/).join(' ');
   }
 
   render() {
@@ -12,7 +12,7 @@ class IndividualRatingsEntries extends React.PureComponent {
     return (
       <div>
         <div>
-          <div>{IndividualRatingsEntries.capitalizeFirstChar(ratingType)}</div>
+          <div>{IndividualRatingsEntries.capitalizeFirstCharAndSplit(ratingType)}</div>
           <div>{rating}</div>
         </div>
         <div>

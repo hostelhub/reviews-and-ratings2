@@ -33,7 +33,7 @@ class IndividualRatingsEntries extends React.PureComponent {
     return (
       <RatingsListEntry>
         <RatingDetails>
-          <div>{type}</div>
+          <div className="ratingType">{type}</div>
           <Rating>{rating}</Rating>
         </RatingDetails>
         <PercentageBar percentage={`${rating * 10}%`} />

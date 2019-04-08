@@ -3,6 +3,7 @@ import { shallow } from 'enzyme';
 
 import TotalRatings from '../client/src/components/TotalRatings';
 import IndividualRatings from '../client/src/components/IndividualRatings';
+import IndividualRatingsEntries from '../client/src/components/IndividualRatingsEntries';
 
 describe('Total Ratings', () => {
   const totalRatings = shallow(<TotalRatings totalRatings={7.5} amtOfRatings={869} />);
@@ -65,5 +66,43 @@ describe('Individual Ratings', () => {
     expect(individualRatings.children()).toHaveLength(Object.keys(ratings).length);
     expect(moreIndividualRatings.children()).toHaveLength(Object.keys(moreRatings).length);
     expect(evenMoreIndividualRatings.children()).toHaveLength(Object.keys(evenMoreRatings).length);
+  });
+});
+
+describe('Individual Ratings Entries', () => {
+  const atmosphereEntry = shallow(<IndividualRatingsEntries ratingType="atmosphere" rating={3.2} />);
+  const cleanlinessEntry = shallow(<IndividualRatingsEntries ratingType="cleanliness" rating={7.6} />);
+  const facilitiesEntry = shallow(<IndividualRatingsEntries ratingType="facilities" rating={6.0} />);
+  const locationEntry = shallow(<IndividualRatingsEntries ratingType="location" rating={8.4} />);
+  const securityEntry = shallow(<IndividualRatingsEntries ratingType="security" rating={3.0} />);
+  const staffEntry = shallow(<IndividualRatingsEntries ratingType="staff" rating={8.0} />);
+  const valueForMoneyEntry = shallow(<IndividualRatingsEntries ratingType="valueForMoney" rating={5.2} />);
+
+  it('should have a RatingDetails div', () => {
+    expect(atmosphereEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(cleanlinessEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(facilitiesEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(locationEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(securityEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(staffEntry.find('RatingDetails').exists()).toEqual(true);
+    expect(valueForMoneyEntry.find('RatingDetails').exists()).toEqual(true);
+  });
+  it('should render rating type', () => {
+    expect(atmosphereEntry.find('.ratingType').text()).toEqual('Atmosphere');
+    expect(cleanlinessEntry.find('.ratingType').text()).toEqual('Cleanliness');
+    expect(facilitiesEntry.find('.ratingType').text()).toEqual('Facilities');
+    expect(locationEntry.find('.ratingType').text()).toEqual('Location');
+    expect(securityEntry.find('.ratingType').text()).toEqual('Security');
+    expect(staffEntry.find('.ratingType').text()).toEqual('Staff');
+    expect(valueForMoneyEntry.find('.ratingType').text()).toEqual('Value For Money');
+  });
+  it('should render rating', () => {
+    expect(Number(atmosphereEntry.find('Rating').text())).toEqual(3.2);
+    expect(Number(cleanlinessEntry.find('Rating').text())).toEqual(7.6);
+    expect(Number(facilitiesEntry.find('Rating').text())).toEqual(6.0);
+    expect(Number(locationEntry.find('Rating').text())).toEqual(8.4);
+    expect(Number(securityEntry.find('Rating').text())).toEqual(3.0);
+    expect(Number(staffEntry.find('Rating').text())).toEqual(8.0);
+    expect(Number(valueForMoneyEntry.find('Rating').text())).toEqual(5.2);
   });
 });

@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import LatestReviewEntry from './LatestReviewEntry';
+
 const Title = styled.h2`
   color: #444;
   line-height: 1.4;
@@ -14,9 +16,7 @@ const Title = styled.h2`
 
 class LatestReviews extends React.PureComponent {
   static getLatestReviews(reviews) {
-    return reviews.sort((a, b) => {
-      return new Date(b.date) - new Date(a.date);
-    }).slice(0, 4);
+    return reviews.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
   }
 
   render() {
@@ -24,6 +24,8 @@ class LatestReviews extends React.PureComponent {
     return (
       <div>
         <Title>Latest Reviews</Title>
+        {LatestReviews.getLatestReviews(reviews.reviews)
+          .map(review => <LatestReviewEntry key={review.date} review={review} />)}
       </div>
     );
   }

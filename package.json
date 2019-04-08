@@ -10,7 +10,7 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": [
-      "<rootDir>/tests/reviewsAndRatings.test.js"
+      "<rootDir>/tests/reviewsAndRatings.test.jsx"
     ],
     "setupFiles": [
       "<rootDir>/enzyme.config.js"

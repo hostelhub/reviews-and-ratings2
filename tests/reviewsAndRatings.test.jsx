@@ -9,22 +9,22 @@ describe('Total Ratings', () => {
   const anotherTotalRatings = shallow(<TotalRatings totalRatings={9.0} amtOfRatings={484} />);
 
   it('should render a score', () => {
-    expect(totalRatings.find('.score').exists()).toEqual(true);
-    expect(Number(totalRatings.find('.score').text())).toEqual(7.5);
-    expect(anotherTotalRatings.find('.score').exists()).toEqual(true);
-    expect(Number(anotherTotalRatings.find('.score').text())).toEqual(9.0);
+    expect(totalRatings.find('Score').exists()).toEqual(true);
+    expect(Number(totalRatings.find('Score').text())).toEqual(7.5);
+    expect(anotherTotalRatings.find('Score').exists()).toEqual(true);
+    expect(Number(anotherTotalRatings.find('Score').text())).toEqual(9.0);
   });
   it('should render the corresponding rank', () => {
-    expect(totalRatings.find('.scoreRank').exists()).toEqual(true);
-    expect(totalRatings.find('.scoreRank').text()).toEqual('Very Good');
-    expect(anotherTotalRatings.find('.scoreRank').exists()).toEqual(true);
-    expect(anotherTotalRatings.find('.scoreRank').text()).toEqual('Superb');
+    expect(totalRatings.find('ScoreRank').exists()).toEqual(true);
+    expect(totalRatings.find('ScoreRank').text()).toEqual('Very Good');
+    expect(anotherTotalRatings.find('ScoreRank').exists()).toEqual(true);
+    expect(anotherTotalRatings.find('ScoreRank').text()).toEqual('Superb');
   });
   it('should render the total amount of reviews', () => {
-    expect(totalRatings.find('.totalReviews').exists()).toEqual(true);
-    expect(totalRatings.find('.totalReviews').text()).toEqual('Based on 869 reviews');
-    expect(anotherTotalRatings.find('.totalReviews').exists()).toEqual(true);
-    expect(anotherTotalRatings.find('.totalReviews').text()).toEqual('Based on 484 reviews');
+    expect(totalRatings.find('TotalReviews').exists()).toEqual(true);
+    expect(totalRatings.find('TotalReviews').text()).toEqual('Based on 869 reviews');
+    expect(anotherTotalRatings.find('TotalReviews').exists()).toEqual(true);
+    expect(anotherTotalRatings.find('TotalReviews').text()).toEqual('Based on 484 reviews');
   });
 });
 
@@ -62,6 +62,8 @@ describe('Individual Ratings', () => {
   const evenMoreIndividualRatings = shallow(<IndividualRatings ratings={evenMoreRatings} />);
 
   it('should render a component for each rating type', () => {
-    expect(individualRatings.children()).to.have.length(Object.keys(ratings).length);
+    expect(individualRatings.children()).toHaveLength(Object.keys(ratings).length);
+    expect(moreIndividualRatings.children()).toHaveLength(Object.keys(moreRatings).length);
+    expect(evenMoreIndividualRatings.children()).toHaveLength(Object.keys(evenMoreRatings).length);
   });
 });

@@ -32,7 +32,7 @@ const TotalReviews = styled.div`
   font-size: 14px;
 `;
 
-class TotalRatings extends React.Component {
+class TotalRatings extends React.PureComponent {
   static getScoreRank(score) {
     if (score >= 9) {
       return 'Superb';

@@ -7,16 +7,19 @@ import PercentageBar from './PercentageBar';
 const RatingsListEntry = styled.div`
   padding: 10px;
 `;
+RatingsListEntry.displayName = 'RatingsListEntry';
 
 const RatingDetails = styled.div`
   display: flex;
   font-size: 14px;
   justify-content: space-between;
 `;
+RatingDetails.displayName = 'RatingDetails';
 
 const Rating = styled.div`
   font-weight: bold;
 `;
+Rating.displayName = 'RatingDetails';
 
 class IndividualRatingsEntries extends React.PureComponent {
   static capitalizeFirstCharAndSplit(string) {

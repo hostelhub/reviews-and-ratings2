@@ -3,6 +3,7 @@ import $ from 'jquery';
 import styled from 'styled-components';
 
 import ReviewsAndRatings from './ReviewsAndRatings';
+import LatestReviews from './LatestReviews';
 
 const Reviews = styled.div`
   box-sizing: border-box;
@@ -36,6 +37,7 @@ class App extends React.Component {
     return (
       <Reviews>
         <ReviewsAndRatings reviews={reviews[0]} />
+        <LatestReviews reviews={reviews[0]} />
       </Reviews>
     );
   }

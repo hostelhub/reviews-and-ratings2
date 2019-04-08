@@ -8,8 +8,12 @@
     "node": ">=6.13.0"
   },
   "jest": {
+    "verbose": true,
     "setupFilesAfterEnv": [
       "<rootDir>/tests/reviewsAndRatings.test.js"
+    ],
+    "setupFiles": [
+      "<rootDir>/enzyme.config.js"
     ],
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
@@ -22,11 +26,22 @@
     "test": "jest"
   },
   "dependencies": {
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.5.0",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-styled-components": "^1.10.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.11.2",
+    "enzyme-to-json": "^3.3.5",
     "express": "^4.16.4",
+    "faker": "^4.1.0",
     "jquery": "^3.3.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.4.20",
     "nodemon": "^1.18.10",
+    "prop-types": "^15.7.2",
     "react": "^16.8.5",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0",
@@ -34,17 +49,13 @@
     "webpack-dev-server": "^3.2.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
-    "@babel/preset-react": "^7.0.0",
-    "babel-jest": "^24.5.0",
-    "babel-loader": "^8.0.5",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
-    "enzyme-to-json": "^3.3.5",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jest": "^22.4.1",
-    "faker": "^4.1.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "jest": "^24.5.0",
     "webpack-cli": "^3.3.0"
   }

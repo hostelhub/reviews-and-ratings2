@@ -5,6 +5,7 @@ import styled from 'styled-components';
 const Ratings = styled.div`
   display: flex;  
 `;
+Ratings.displayName = 'Ratings';
 
 const Score = styled.div`
   background-color: #ff7547;
@@ -14,6 +15,7 @@ const Score = styled.div`
   font-weight: bold;
   padding: 8px;
 `;
+Score.displayName = 'Score';
 
 const RatingDetails = styled.div`
   color: #ff7547;
@@ -22,15 +24,18 @@ const RatingDetails = styled.div`
   justify-content: space-between;
   padding-left: 10px;
 `;
+RatingDetails.displayName = 'RatingDetails';
 
 const ScoreRank = styled.div`
   font-weight: bold;
   font-size: 20px;
 `;
+ScoreRank.displayName = 'ScoreRank';
 
 const TotalReviews = styled.div`
   font-size: 14px;
 `;
+TotalReviews.displayName = 'TotalReviews';
 
 class TotalRatings extends React.PureComponent {
   static getScoreRank(score) {

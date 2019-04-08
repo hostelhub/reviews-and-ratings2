@@ -19,7 +19,7 @@ RatingDetails.displayName = 'RatingDetails';
 const Rating = styled.div`
   font-weight: bold;
 `;
-Rating.displayName = 'RatingDetails';
+Rating.displayName = 'Rating';
 
 class IndividualRatingsEntries extends React.PureComponent {
   static capitalizeFirstCharAndSplit(string) {

@@ -33,7 +33,7 @@ class LatestReviewEntry extends React.PureComponent {
   static getDate(date) {
     const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     const reviewDate = new Date(date);
-    const day = reviewDate.getDay();
+    const day = reviewDate.getDate();
     const month = months[reviewDate.getMonth()];
     const year = reviewDate.getFullYear();
 
@@ -56,6 +56,8 @@ class LatestReviewEntry extends React.PureComponent {
             <CalendarIcon />
             <p>{LatestReviewEntry.getDate(review.date)}</p>
           </div>
+          <div className="review">{review.review}</div>
+          <hr />
         </div>
       </div>
     );

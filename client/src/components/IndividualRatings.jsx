@@ -1,13 +1,19 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
 import IndividualRatingsEntries from './IndividualRatingsEntries';
+
+const RatingsList = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 class IndividualRatings extends React.PureComponent {
   render() {
     const { ratings } = this.props;
     return (
-      <div>
+      <RatingsList>
         {Object.entries(ratings).map((rating) => {
           return (
             <IndividualRatingsEntries
@@ -16,7 +22,7 @@ class IndividualRatings extends React.PureComponent {
             />
           );
         })}
-      </div>
+      </RatingsList>
     );
   }
 }

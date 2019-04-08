@@ -7,6 +7,8 @@ import IndividualRatingsEntries from './IndividualRatingsEntries';
 const RatingsList = styled.div`
   display: flex;
   flex-wrap: wrap;
+  padding-bottom: 10px;
+  padding-top: 10px;
 `;
 
 class IndividualRatings extends React.PureComponent {

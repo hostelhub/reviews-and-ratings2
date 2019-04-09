@@ -6,6 +6,8 @@ import TotalRatings from '../client/src/components/TotalRatings';
 import IndividualRatings from '../client/src/components/IndividualRatings';
 import IndividualRatingsEntries from '../client/src/components/IndividualRatingsEntries';
 import PercentageBar from '../client/src/components/PercentageBar';
+import LatestReview from '../client/src/components/LatestReviews';
+import LatestReviewEntry from '../client/src/components/LatestReviewEntry';
 
 describe('Total Ratings', () => {
   const totalRatings = shallow(<TotalRatings totalRatings={7.5} amtOfRatings={869} />);
@@ -118,5 +120,58 @@ describe('Individual Percentage Bars', () => {
     expect(percentageBar.find('Percentage').exists()).toEqual(true);
     expect(anotherPercentageBar.find('Percentage').exists()).toEqual(true);
     expect(yetAnotherPercentageBar.find('Percentage').exists()).toEqual(true);
+  });
+});
+
+describe('Latest Reviews', () => {
+  const reviews = {
+    reviews: [
+      {
+        review: 'This is my second review.',
+        date: '2018-05-16T02:59:12.711Z',
+      },
+      {
+        review: 'This is my first review.',
+        date: '2018-04-07T01:38:25.590Z',
+      },
+      {
+        review: 'This is my eighth review.',
+        date: '2018-11-07T18:38:50.964Z',
+      },
+      {
+        review: 'This is my third review.',
+        date: '2018-06-25T22:01:06.624Z',
+      },
+      {
+        review: 'This is my fifth review.',
+        date: '2018-08-04T13:53:01.842Z',
+      },
+      {
+        review: 'This is my sixth review.',
+        date: '2018-08-16T20:05:00.911Z',
+      },
+      {
+        review: 'This is my fourth review.',
+        date: '2018-06-30T19:00:36.389Z',
+      },
+      {
+        review: 'This is my seventh review.',
+        date: '2018-11-03T12:35:03.382Z',
+      },
+    ],
+  };
+
+  const latestReviews = shallow(<LatestReview reviews={reviews} />);
+
+  it('should render the latest four reviews', () => {
+    expect(latestReviews.find('.latestReviewEntries').children()).toHaveLength(4);
+    expect(latestReviews.find('.latestReviewEntries').childAt(0).key()).toEqual('2018-11-07T18:38:50.964Z');
+    expect(latestReviews.find('.latestReviewEntries').childAt(0).props().review.review).toEqual('This is my eighth review.');
+    expect(latestReviews.find('.latestReviewEntries').childAt(1).key()).toEqual('2018-11-03T12:35:03.382Z');
+    expect(latestReviews.find('.latestReviewEntries').childAt(1).props().review.review).toEqual('This is my seventh review.');
+    expect(latestReviews.find('.latestReviewEntries').childAt(2).key()).toEqual('2018-08-16T20:05:00.911Z');
+    expect(latestReviews.find('.latestReviewEntries').childAt(2).props().review.review).toEqual('This is my sixth review.');
+    expect(latestReviews.find('.latestReviewEntries').childAt(3).key()).toEqual('2018-08-04T13:53:01.842Z');
+    expect(latestReviews.find('.latestReviewEntries').childAt(3).props().review.review).toEqual('This is my fifth review.');
   });
 });

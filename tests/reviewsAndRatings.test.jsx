@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import 'jest-styled-components';
 
 import TotalRatings from '../client/src/components/TotalRatings';
 import IndividualRatings from '../client/src/components/IndividualRatings';
 import IndividualRatingsEntries from '../client/src/components/IndividualRatingsEntries';
+import PercentageBar from '../client/src/components/PercentageBar';
 
 describe('Total Ratings', () => {
   const totalRatings = shallow(<TotalRatings totalRatings={7.5} amtOfRatings={869} />);
@@ -104,5 +106,17 @@ describe('Individual Ratings Entries', () => {
     expect(Number(securityEntry.find('Rating').text())).toEqual(3.0);
     expect(Number(staffEntry.find('Rating').text())).toEqual(8.0);
     expect(Number(valueForMoneyEntry.find('Rating').text())).toEqual(5.2);
+  });
+});
+
+describe('Individual Percentage Bars', () => {
+  const percentageBar = shallow(<PercentageBar percentage="32%" />);
+  const anotherPercentageBar = shallow(<PercentageBar percentage="76%" />);
+  const yetAnotherPercentageBar = shallow(<PercentageBar percentage="60%" />);
+
+  it('should render a percentage bar', () => {
+    expect(percentageBar.find('Percentage').exists()).toEqual(true);
+    expect(anotherPercentageBar.find('Percentage').exists()).toEqual(true);
+    expect(yetAnotherPercentageBar.find('Percentage').exists()).toEqual(true);
   });
 });

@@ -10,8 +10,12 @@ const CalendarIcon = styled(Calendar)`
 class LatestReviewEntry extends React.PureComponent {
   static findAvgScore(ratings) {
     const scores = Object.values(ratings);
-    const score = scores.reduce((acc, currVal) => acc + currVal) / scores.length;
-    return Math.round(score * 10) / 10;
+    let score = scores.reduce((acc, currVal) => acc + currVal) / scores.length;
+    score = Math.round(score * 10) / 10;
+    if (score % 1 === 0) {
+      score += '.0';
+    }
+    return score;
   }
 
   static getScoreRank(score) {

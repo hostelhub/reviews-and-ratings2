@@ -24,7 +24,11 @@ const LineBreak = styled.hr`
 class ReviewsAndRatings extends React.PureComponent {
   static findAverageRating(ratings) {
     const total = ratings.reduce((acc, currVal) => acc + currVal);
-    return Math.round((total / ratings.length) * 10) / 10;
+    let score = Math.round((total / ratings.length) * 10) / 10;
+    if (score % 1 === 0) {
+      score += '.0';
+    }
+    return score;
   }
 
   static findAverage(reviews) {

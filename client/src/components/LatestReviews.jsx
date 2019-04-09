@@ -25,8 +25,11 @@ class LatestReviews extends React.PureComponent {
     return (
       <div>
         <Title>Latest Reviews</Title>
-        {LatestReviews.getLatestReviews(reviews.reviews)
-          .map(review => <LatestReviewEntry key={review.date} review={review} />)}
+        <div className="latestReviewEntries">
+          {LatestReviews.getLatestReviews(reviews.reviews)
+            .map(review => <LatestReviewEntry key={review.date} review={review} />)}
+        </div>
+        
       </div>
     );
   }

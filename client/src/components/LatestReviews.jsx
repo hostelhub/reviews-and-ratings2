@@ -35,7 +35,6 @@ class LatestReviews extends React.PureComponent {
 LatestReviews.defaultProps = {
   reviews: {
     reviews: [],
-    date: new Date(),
   },
 };
 

@@ -13,6 +13,7 @@ const Title = styled.h2`
   font-style: normal;
   font-weight: normal;
 `;
+Title.displayName = 'Title';
 
 class LatestReviews extends React.PureComponent {
   static getLatestReviews(reviews) {

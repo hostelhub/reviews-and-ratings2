@@ -175,3 +175,85 @@ describe('Latest Reviews', () => {
     expect(latestReviews.find('.latestReviewEntries').childAt(3).props().review.review).toEqual('This is my fifth review.');
   });
 });
+
+describe('Latest Review Entries', () => {
+  const review = {
+    user: {
+      nationality: 'United States',
+      groupType: 'Female',
+      ageRange: '21-35',
+    },
+    ratings: {
+      valueForMoney: 10,
+      location: 9,
+      atmosphere: 7,
+      facilities: 4,
+      security: 5,
+      staff: 9,
+      cleanliness: 2,
+    },
+    review: 'This is a review.',
+    date: '2019-02-23T06:14:06.238Z',
+  };
+  const anotherReview = {
+    user: {
+      nationality: 'United States',
+      groupType: 'Male',
+      ageRange: '21-35',
+    },
+    ratings: {
+      valueForMoney: 9,
+      location: 10,
+      atmosphere: 10,
+      facilities: 9,
+      security: 10,
+      staff: 10,
+      cleanliness: 9,
+    },
+    review: 'This is another review.',
+    date: '2018-05-05T22:52:31.716Z',
+  };
+  const yetAnotherReview = {
+    user: {
+      nationality: 'United States',
+      groupType: 'Mixed Group',
+      ageRange: '21-35',
+    },
+    ratings: {
+      valueForMoney: 3,
+      location: 3,
+      atmosphere: 3,
+      facilities: 3,
+      security: 3,
+      staff: 3,
+      cleanliness: 3,
+    },
+    review: 'This is yet another review.',
+    date: '2019-01-27T05:46:03.158Z',
+  };
+
+  const latestReviewEntry = shallow(<LatestReviewEntry review={review} />);
+  const anotherLatestReviewEntry = shallow(<LatestReviewEntry review={anotherReview} />);
+  const yetAnotherLatestReviewEntry = shallow(<LatestReviewEntry review={yetAnotherReview} />);
+
+  it('should render a score', () => {
+    expect(latestReviewEntry.find('.score').text()).toEqual('6.6');
+    expect(anotherLatestReviewEntry.find('.score').text()).toEqual('9.6');
+    expect(yetAnotherLatestReviewEntry.find('.score').text()).toEqual('3.0');
+  });
+  it('should render the corresponding rank', () => {
+    expect(latestReviewEntry.find('.rank').text()).toEqual('Good');
+    expect(anotherLatestReviewEntry.find('.rank').text()).toEqual('Superb');
+    expect(yetAnotherLatestReviewEntry.find('.rank').text()).toEqual('Rating');
+  });
+  it('should render the date', () => {
+    expect(latestReviewEntry.find('.date').text()).toEqual('22 Feb 2019');
+    expect(anotherLatestReviewEntry.find('.date').text()).toEqual('5 May 2018');
+    expect(yetAnotherLatestReviewEntry.find('.date').text()).toEqual('26 Jan 2019');
+  });
+  it('should render the reviews', () => {
+    expect(latestReviewEntry.find('.review').text()).toEqual('This is a review.');
+    expect(anotherLatestReviewEntry.find('.review').text()).toEqual('This is another review.');
+    expect(yetAnotherLatestReviewEntry.find('.review').text()).toEqual('This is yet another review.');
+  });
+});

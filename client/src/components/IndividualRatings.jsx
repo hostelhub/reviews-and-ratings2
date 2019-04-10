@@ -43,7 +43,7 @@ IndividualRatings.defaultProps = {
 };
 
 IndividualRatings.propTypes = {
-  ratings: PropTypes.objectOf(PropTypes.number),
+  ratings: PropTypes.objectOf(PropTypes.string),
 };
 
 export default IndividualRatings;

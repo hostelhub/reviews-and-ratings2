@@ -15,6 +15,10 @@ const Title = styled.h2`
 `;
 Title.displayName = 'Title';
 
+const LatestReviewEntries = styled.div`
+  display: flex;
+`;
+
 class LatestReviews extends React.PureComponent {
   static getLatestReviews(reviews) {
     return reviews.sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
@@ -25,11 +29,10 @@ class LatestReviews extends React.PureComponent {
     return (
       <div>
         <Title>Latest Reviews</Title>
-        <div className="latestReviewEntries">
+        <LatestReviewEntries>
           {LatestReviews.getLatestReviews(reviews.reviews)
             .map(review => <LatestReviewEntry key={review.date} review={review} />)}
-        </div>
-        
+        </LatestReviewEntries>
       </div>
     );
   }

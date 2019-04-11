@@ -7,7 +7,7 @@ const Review = require('../database/Review.js');
 
 app.use('/hostels/:hostelId', express.static(`${__dirname}/../client/dist`));
 
-app.get('/api/reviews/:_id', (req, res) => {
+app.get('/api/reviews/:_id/reviews', (req, res) => {
   Review.find(req.params)
     .exec((err, reviews) => {
       if (err) throw err;

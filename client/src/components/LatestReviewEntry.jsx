@@ -44,6 +44,10 @@ class LatestReviewEntry extends React.PureComponent {
     return `${day} ${month} ${year}`;
   }
 
+  static getUserInfo(user) {
+    return `${user.nationality}, ${user.groupType}, ${user.ageRange}`;
+  }
+
   render() {
     const { review } = this.props;
     const avgScore = LatestReviewEntry.findAvgScore(review.ratings);
@@ -62,6 +66,7 @@ class LatestReviewEntry extends React.PureComponent {
           </div>
           <div className="review">{review.review}</div>
           <hr />
+          <div className="userInfo">{LatestReviewEntry.getUserInfo(review.user)}</div>
         </div>
       </div>
     );

@@ -3,9 +3,53 @@ import styled from 'styled-components';
 import { Calendar } from 'styled-icons/boxicons-regular/Calendar';
 import PropType from 'prop-types';
 
+const ReviewEntry = styled.div`
+  padding: 14px;
+  width: 1250px;
+`;
+ReviewEntry.displayName = 'ReviewEntry';
+
+const ScoreAndDate = styled.div`
+  display: flex;
+  align-content: space-between;
+`;
+
+const ScoreDetails = styled.div`
+  display: flex;
+`;
+ScoreDetails.displayName = 'ScoreDetails';
+
+const Score = styled.div`
+  background-color: #ff7547;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px;
+`;
+Score.displayName = 'Score';
+
+const Rank = styled.div`
+  color: #ff7547;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: bold;
+  justify-content: center;
+  padding-left: 8px;
+`;
+Rank.displayName = 'Rank';
+
+const ReviewDate = styled.div`
+  color: #888;
+  display: flex;
+  font-size: 14px;
+`;
+ReviewDate.displayName = 'Date';
+
 const CalendarIcon = styled(Calendar)`
   height: 17px;
 `;
+CalendarIcon.displayName = 'CalendarIcon';
 
 class LatestReviewEntry extends React.PureComponent {
   static findAvgScore(ratings) {
@@ -52,23 +96,23 @@ class LatestReviewEntry extends React.PureComponent {
     const { review } = this.props;
     const avgScore = LatestReviewEntry.findAvgScore(review.ratings);
     return (
-      <div className="ReviewEntry">
-        <div className="scoreAndDate">
-          <div className="scoredetails">
-            <div className="score">
+      <ReviewEntry>
+        <ScoreAndDate>
+          <ScoreDetails>
+            <Score>
               {avgScore}
-            </div>
-            <div className="rank">{LatestReviewEntry.getScoreRank(avgScore)}</div>
-          </div>
-          <div className="date">
+            </Score>
+            <Rank>{LatestReviewEntry.getScoreRank(avgScore)}</Rank>
+          </ScoreDetails>
+          <ReviewDate>
             <CalendarIcon />
-            <p>{LatestReviewEntry.getDate(review.date)}</p>
-          </div>
-          <div className="review">{review.review}</div>
-          <hr />
-          <div className="userInfo">{LatestReviewEntry.getUserInfo(review.user)}</div>
-        </div>
-      </div>
+            <div>{LatestReviewEntry.getDate(review.date)}</div>
+          </ReviewDate>
+        </ScoreAndDate>
+        <div className="review">{review.review}</div>
+        <hr />
+        <div className="userInfo">{LatestReviewEntry.getUserInfo(review.user)}</div>
+      </ReviewEntry>
     );
   }
 }

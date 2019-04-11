@@ -7,16 +7,19 @@ import PercentageBar from './PercentageBar';
 const RatingsListEntry = styled.div`
   padding: 10px;
 `;
+RatingsListEntry.displayName = 'RatingsListEntry';
 
 const RatingDetails = styled.div`
   display: flex;
   font-size: 14px;
   justify-content: space-between;
 `;
+RatingDetails.displayName = 'RatingDetails';
 
 const Rating = styled.div`
   font-weight: bold;
 `;
+Rating.displayName = 'Rating';
 
 class IndividualRatingsEntries extends React.PureComponent {
   static capitalizeFirstCharAndSplit(string) {
@@ -30,7 +33,7 @@ class IndividualRatingsEntries extends React.PureComponent {
     return (
       <RatingsListEntry>
         <RatingDetails>
-          <div>{type}</div>
+          <div className="ratingType">{type}</div>
           <Rating>{rating}</Rating>
         </RatingDetails>
         <PercentageBar percentage={`${rating * 10}%`} />

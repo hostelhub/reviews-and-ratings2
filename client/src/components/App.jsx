@@ -3,6 +3,7 @@ import $ from 'jquery';
 import styled from 'styled-components';
 
 import ReviewsAndRatings from './ReviewsAndRatings';
+import LatestReviews from './LatestReviews';
 
 const Reviews = styled.div`
   box-sizing: border-box;
@@ -20,10 +21,11 @@ class App extends React.Component {
 
   componentDidMount() {
     const self = this;
+    const id = window.location.pathname.split('/')[2];
 
     $.ajax({
       method: 'GET',
-      url: '/api/reviews/2',
+      url: `/api/reviews/${id}`,
       success: (reviews) => {
         self.setState({ reviews });
       },
@@ -36,9 +38,11 @@ class App extends React.Component {
     return (
       <Reviews>
         <ReviewsAndRatings reviews={reviews[0]} />
+        <LatestReviews reviews={reviews[0]} />
       </Reviews>
     );
   }
 }
 
 export default App;
+window.ReviewsAndRatings = App;

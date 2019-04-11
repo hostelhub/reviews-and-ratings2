@@ -10,7 +10,7 @@
   "jest": {
     "verbose": true,
     "setupFilesAfterEnv": [
-      "<rootDir>/tests/reviewsAndRatings.test.js"
+      "<rootDir>/tests/reviewsAndRatings.test.jsx"
     ],
     "setupFiles": [
       "<rootDir>/enzyme.config.js"
@@ -37,6 +37,7 @@
     "enzyme-to-json": "^3.3.5",
     "express": "^4.16.4",
     "faker": "^4.1.0",
+    "jest-styled-components": "^6.3.1",
     "jquery": "^3.3.1",
     "mongo": "^0.1.0",
     "mongoose": "^5.4.20",
@@ -45,6 +46,7 @@
     "react": "^16.8.5",
     "react-dom": "^16.8.6",
     "styled-components": "^4.2.0",
+    "styled-icons": "^7.9.0",
     "webpack": "^4.29.6",
     "webpack-dev-server": "^3.2.1"
   },

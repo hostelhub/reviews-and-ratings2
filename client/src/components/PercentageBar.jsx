@@ -8,6 +8,7 @@ const Bar = styled.div`
   height: .375rem;
   width: 225px;
 `;
+Bar.displayName = 'Bar';
 
 const Percentage = styled.div`
   background-color: #ff7547;
@@ -15,6 +16,7 @@ const Percentage = styled.div`
   height: inherit;
   z-index: 1;
 `;
+Percentage.displayName = 'Percentage';
 
 class PercentageBar extends React.PureComponent {
   render() {

@@ -1,7 +1,7 @@
 const express = require('express');
 
 const app = express();
-const port = 7000;
+const port = 3003;
 
 const Review = require('../database/Review.js');
 

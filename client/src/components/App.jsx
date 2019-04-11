@@ -1,6 +1,5 @@
 import React from 'react';
 import $ from 'jquery';
-import styled from 'styled-components';
 
 import ReviewsAndRatings from './ReviewsAndRatings';
 import LatestReviews from './LatestReviews';
@@ -25,7 +24,7 @@ class App extends React.Component {
 
     $.ajax({
       method: 'GET',
-      url: `/api/reviews/${id}`,
+      url: `/api/reviews/${id}/reviews`,
       success: (reviews) => {
         self.setState({ reviews });
       },

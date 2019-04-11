@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import { Calendar } from 'styled-icons/boxicons-regular/Calendar';
 import PropType from 'prop-types';
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 import TotalRatings from './TotalRatings';
 import IndividualRatings from './IndividualRatings';

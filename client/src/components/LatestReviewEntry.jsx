@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar } from 'styled-icons/boxicons-regular/Calendar';
 import PropType from 'prop-types';
+import styled from 'styled-components';
 
 const ReviewEntry = styled.div`
   padding: 14px;
@@ -10,7 +11,6 @@ ReviewEntry.displayName = 'ReviewEntry';
 
 const ScoreAndDate = styled.div`
   display: flex;
-  align-content: space-between;
 `;
 
 const ScoreDetails = styled.div`
